@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Converter</title>
+</head>
+<body>
+    <h1>Currency Converter</h1>
+
+    <form method="post" action="{% url 'currency_converter' %}">
+        {% csrf_token %}
+        <label for="from_currency">From Currency:</label>
+        <input type="text" name="from_currency" required>
+
+        <label for="to_currency">To Currency:</label>
+        <input type="text" name="to_currency" required>
+
+        <label for="amount">Amount:</label>
+        <input type="text" name="amount" required>
+
+        <button type="submit">Convert</button>
+    </form>
+
+    {% if conversion_result %}
+        <p>Conversion Result: {{ conversion_result }}</p>
+    {% endif %}
+
+    {% if error_message %}
+        <p>Error: {{ error_message }}</p>
+    {% endif %}
+</body>
+</html>

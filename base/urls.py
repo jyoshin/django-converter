@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views import currency_converter
 
 urlpatterns = [
-    path('', views.basic_response, name='converter'),
+    path('', currency_converter, name='currency_converter'),
 ]
