@@ -3,6 +3,66 @@
 <html>
 <head>
     <title>Currency Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .error {
+            color: #ff0000;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <h1>Currency Converter</h1>
@@ -19,12 +79,11 @@
         <input type="text" name="amount" required>
 
         <button type="submit">Convert</button>
+
+        {% if conversion_result %}
+            <h3><p>Conversion Result: {{ conversion_result }}</p></h3>
+        {% endif %}  
     </form>
-
-    {% if conversion_result %}
-        <p>Conversion Result: {{ conversion_result }}</p>
-    {% endif %}
-
     {% if error_message %}
         <p>Error: {{ error_message }}</p>
     {% endif %}
